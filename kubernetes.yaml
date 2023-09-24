@@ -17,10 +17,8 @@ spec:
         app: auditreporterapp
     spec:
       containers:
-       —name: auditreporter
-          image: x00159358/auditreporter:latest
-          ports:
-           —containerPort: 30022
+      - name: auditreporter
+        image: x00159358/auditreporter:latest
 ---
 apiVersion: v1
 kind: Service
