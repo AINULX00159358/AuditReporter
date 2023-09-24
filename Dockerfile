@@ -16,7 +16,7 @@ RUN npm install
 COPY . .
 
 # App binds to port 22137 - the EXPOSE instruction maps it to the docker daemon
-EXPOSE 30022
+EXPOSE 3000
 
 # Will run node fe-server.js as defined in package.json
 CMD [ "npm", "start" ]
