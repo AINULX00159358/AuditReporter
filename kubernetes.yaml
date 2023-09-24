@@ -1,7 +1,7 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: AuditReporter
+  name: auditreporter
   labels:
     app: auditreporterapp
 spec:
@@ -9,8 +9,6 @@ spec:
     matchLabels:
       app: auditreporterapp
   replicas: 1
-  strategy:
-    type: RollingUpdate
   template:
     metadata:
       labels:
@@ -23,7 +21,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: AuditReporter
+  name: auditreportersvc
 spec:
   ports:
     - protocol: TCP
