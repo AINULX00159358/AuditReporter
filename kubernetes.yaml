@@ -26,4 +26,4 @@ spec:
   ports:
     - protocol: TCP
       port: 8080
-      targetPort: 30022
+      targetPort: 3000
