@@ -1,0 +1,14 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: auditreporter
+  labels:
+    purpose: "show audited events"
+spec:
+  replicas: 1
+  template:
+    spec:
+      containers:
+      - name: auditreporter
+        image: x00159358/auditreporter
+
