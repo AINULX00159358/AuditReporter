@@ -17,6 +17,7 @@ spec:
       containers:
       - name: auditreporter
         image: x00159358/auditreporter:latest
+        imagePullPolicy: Always
 ---
 apiVersion: v1
 kind: Service
