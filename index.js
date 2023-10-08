@@ -19,25 +19,23 @@ function getRand(max, min){
 // })
 // prometheus.collectDefaultMetrics({ register });
 
-const latencyHistogram = new Prometheus.Histogram({
-   name: 'e2e_latency_milliseconds',
-   help: 'E2E Workflow from Invoice Generation to Closed',
-   labelNames: ['ID'],
-   buckets: [0.10, 5, 15, 50, 100, 200, 300, 400, 500, 1000, 10000, 50000, 100000]
+// const latencyMetrics = new Prometheus.Histogram({
+//    name: 'e2e_latency_milliseconds',
+//    help: 'E2E Workflow from Invoice Generation to Closed',
+//    labelNames: ['ID'],
+//   buckets: [0.10, 5, 15, 50, 100, 200, 300, 400, 500, 1000, 10000, 50000, 100000]
+// })
+
+const latencyMetrics = new Prometheus.Gauge( {
+  name: 'e2e_latency_milliseconds',
+  help: 'E2E Workflow from Invoice Generation to Closed',
+  labelNames: ['Latency']
 })
 
-//Prometheus.Registry.register(latencyHistogram);
-
-//.registerMetric(latencyHistogram);
-
-
 setInterval(function() { 
-  // latencyHistogram.observe({ ID: 'AUDIT' }, getRand(1000, 100) );
   const nn = getRand(1000, 100);
-  console.log(" auditing ", nn)
-  latencyHistogram.labels('AUDIT').observe(nn);
-  //Prometheus.register.getMetricsAsArray().forEach (x => console.log(x));
-  //Prometheus.register.metrics().then(str => console.log(str));
+  console.log(" auditing ", nn);
+  latencyMetrics.set(nn);
 } , 2000)
 
 console.log("ffffffffffffffffffffffffffffffffffff");
