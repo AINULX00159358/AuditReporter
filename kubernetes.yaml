@@ -23,6 +23,9 @@ kind: Service
 metadata:
   name: auditreportersvc
 spec:
+  selector:
+    matchLabels:
+      app: auditreporterapp
   ports:
     - protocol: TCP
       port: 3000
