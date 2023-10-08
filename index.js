@@ -29,7 +29,6 @@ const latencyMetrics = new Prometheus.Gauge( {
 
 setInterval(function() { 
   const nn = getRand(1000, 100);
-  console.log(" auditing ", nn);
   latencyMetrics.set(nn);
 } , 2000)
 
