@@ -50,9 +50,10 @@ app.get('/metrics', async  (req, res) => {
 })
 
 
-app.post('/audit', (req, res) => {
+app.post('/audit', (req, res) => { 
   console.log('receiving data ...');
   console.log('body is ',req.body);
+  res.status(201).end();
 })
 
 
