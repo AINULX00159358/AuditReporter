@@ -13,11 +13,6 @@ function getRand(max, min){
    return Math.floor(Math.random() * (+max + 1 - +min)) + +min;
 }
 
-// const register = new prometheus.Registry();
-// register.setDefaultLabels({
-//    app: 'InvoiceMgeAudit'
-// })
-// prometheus.collectDefaultMetrics({ register });
 
 // const latencyMetrics = new Prometheus.Histogram({
 //    name: 'e2e_latency_milliseconds',
