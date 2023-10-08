@@ -27,13 +27,6 @@ const latencyMetrics = new Prometheus.Gauge( {
   labelNames: ['Latency']
 })
 
-setInterval(function() { 
-  const nn = getRand(1000, 100);
-  latencyMetrics.set(nn);
-} , 2000)
-
-console.log("ffffffffffffffffffffffffffffffffffff");
-
 app.get('/', (req, res) => {
   res.end('OK');
  })
