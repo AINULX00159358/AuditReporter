@@ -7,7 +7,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
 
-const port = 3234;
+const port = 3000;
 
 function getRand(max, min){
    return Math.floor(Math.random() * (+max + 1 - +min)) + +min;
