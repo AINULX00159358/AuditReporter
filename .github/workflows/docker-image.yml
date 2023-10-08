@@ -15,4 +15,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag x00159358/AuditReporter:latest
+      run: docker build . --file Dockerfile --tag x00159358/auditreporter:latest
