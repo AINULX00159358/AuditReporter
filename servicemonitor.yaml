@@ -4,7 +4,7 @@ metadata:
   labels:
     app: audit-reporter-services
   name: audit-reporter-services
-  namespace: default
+  namespace: misc
 spec:
   endpoints:
   - honorLabels: true
@@ -13,7 +13,7 @@ spec:
     port: auditport
   namespaceSelector:
     matchNames:
-    - default
+    - misc
   selector:
     matchLabels:
       svc: auditreportersvc
