@@ -27,6 +27,7 @@ spec:
   selector:
     app: auditreporterapp
   ports:
-    - protocol: TCP
+    - name: auditport
+      protocol: TCP
       port: 3000
       targetPort: 3000
