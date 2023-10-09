@@ -1,0 +1,19 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  labels:
+    app: audit-reporter-services
+  name: audit-reporter-services
+  namespace: default
+spec:
+  endpoints:
+  - honorLabels: true
+    interval: 30s
+    path: /metrics
+    port: auditport
+  namespaceSelector:
+    matchNames:
+    - default
+  selector:
+    matchLabels:
+      svc: auditreportersvc
