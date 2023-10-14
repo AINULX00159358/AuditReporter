@@ -48,7 +48,7 @@ app.post('/audit', (req, res) => {
   //data.ending - data.starting;
   //latencyMetrics.set(latency);
   //console.log(" data ", data);
-  latencyMetrics.labels(data.invoiceID).observe(data.maxLatency);
+  latencyMetrics.labels("INVOICEMGR").observe(data.maxLatency);
   res.status(201).end();
 })
 
