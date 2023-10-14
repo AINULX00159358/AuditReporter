@@ -44,9 +44,8 @@ app.get('/metrics', async  (req, res) => {
 
 app.post('/audit', (req, res) => {
   const data = req.body;
-  //const latency = data.maxlatency;
-  //data.ending - data.starting;
-   latencyMetrics.set(data.maxLatency);
+  const latency = data.ending - data.starting;
+   latencyMetrics.set(latency);
   //console.log(" data ", data);
  // latencyMetrics.labels("INVOICEMGR").observe(data.maxLatency);
   res.status(201).end();
