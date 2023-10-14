@@ -14,18 +14,18 @@ function getRand(max, min){
 }
 
 
-const latencyMetrics = new Prometheus.Histogram({
-   name: 'e2e_latency_milliseconds',
-   help: 'E2E Workflow from Invoice Generation to Closed',
-   labelNames: ['Latency'],
-  buckets: [0.10, 1, 2, 5, 15, 50, 100, 200, 300, 400, 500, 1000, 10000, 50000]
-})
-
-// const latencyMetrics = new Prometheus.Gauge( {
-//   name: 'e2e_latency_milliseconds',
-//   help: 'E2E Workflow from Invoice Generation to Closed',
-//   labelNames: ['Latency']
+// const latencyMetrics = new Prometheus.Histogram({
+//    name: 'e2e_latency_milliseconds',
+//    help: 'E2E Workflow from Invoice Generation to Closed',
+//    labelNames: ['Latency'],
+//   buckets: [0.10, 1, 2, 5, 15, 50, 100, 200, 300, 400, 500, 1000, 10000, 50000]
 // })
+
+const latencyMetrics = new Prometheus.Gauge( {
+  name: 'e2e_latency_milliseconds',
+  help: 'E2E Workflow from Invoice Generation to Closed',
+  labelNames: ['Latency']
+})
 
 app.get('/', (req, res) => {
   res.end('OK');
@@ -46,9 +46,9 @@ app.post('/audit', (req, res) => {
   const data = req.body;
   //const latency = data.maxlatency;
   //data.ending - data.starting;
-  //latencyMetrics.set(latency);
+   latencyMetrics.set(data.maxLatency);
   //console.log(" data ", data);
-  latencyMetrics.labels("INVOICEMGR").observe(data.maxLatency);
+ // latencyMetrics.labels("INVOICEMGR").observe(data.maxLatency);
   res.status(201).end();
 })
 
